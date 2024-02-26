@@ -1,5 +1,5 @@
 # SamplePWA
-This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0 with Radzen Components, OData and SQL Server
+This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData, OpenAPI and SQL Server
 
 ## How to run
 1. Clone the repository
