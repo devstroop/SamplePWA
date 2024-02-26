@@ -1,5 +1,5 @@
 # SamplePWA
-This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData, OpenAPI and SQL Server
+This is a sample Progressive Web Application (PWA) with Auto Server-Side Rendering (SSR) and Client-Side Rendering (CSR), developed using .NET Core 8.0, Radzen Components, OData, OpenAPI, and SQL Server.
 
 ## How to run
 1. Clone the repository
@@ -54,9 +54,9 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
 	dotnet run --project Server
 	```
 ## Database Schema Report
+For detailed database schema report for the project, visit https://devstroop.github.io/SamplePWA/
 
-
-# Developed by
+## Developed by
   [Akash Shah](https://www.buymeacoffee.com/aksbju)
 - [GitHub](https://www.github.com/itsalfredakku)
 - [Organization](https://www.github.com/devstroop)
