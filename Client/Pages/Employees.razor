@@ -1,0 +1,58 @@
+@page "/employees"
+@attribute [Authorize]
+
+<PageTitle>Employees</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="Employees" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenSplitButton Icon="get_app" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+                    <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
+                    <RadzenSplitButtonItem Text="CSV" Value="csv" />
+                </RadzenSplitButton>
+                <RadzenButton Icon="add_circle_outline" Text="Add" Click="@AddButtonClick" Variant="Variant.Flat" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenTextBox Placeholder="Search ..." style="display: block; width: 100%" @oninput="@Search" aria-label="Search by all string columns" />
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="200px"   AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@employees" LoadData="@Grid0LoadData" Count="@count" TItem="SamplePWA.Server.Models.SampleDB.Employee" RowSelect="@EditRow">
+            <Columns>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="EmployeeID" Title="Employee I D">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="FirstName" Title="First Name">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="LastName" Title="Last Name">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Email" Title="Email">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Phone" Title="Phone">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Address" Title="Address">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Department" Title="Department">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Position" Title="Position">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Property="Salary" Title="Salary">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.Employee" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                    <Template Context="employee">
+
+                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Medium"
+                            Shade="Shade.Lighter" Variant="Variant.Flat"
+                            Click=@(args => GridDeleteButtonClick(args, employee)) @onclick:stopPropagation="true" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>

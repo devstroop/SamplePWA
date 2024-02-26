@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.0.0
+MinimumVisualStudioVersion = 17.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamplePWA.Server", "Server\SamplePWA.Server.csproj", "{41B5BAF8-8750-4207-9115-B6A97694483A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamplePWA.Client", "Client\SamplePWA.Client.csproj", "{48676824-D9F3-43DF-BCD7-98A91438BDE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B32A9A54-162B-45D9-A026-B6E47E7044D2}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.MD = Readme.MD
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41B5BAF8-8750-4207-9115-B6A97694483A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B5BAF8-8750-4207-9115-B6A97694483A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B5BAF8-8750-4207-9115-B6A97694483A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B5BAF8-8750-4207-9115-B6A97694483A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48676824-D9F3-43DF-BCD7-98A91438BDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48676824-D9F3-43DF-BCD7-98A91438BDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48676824-D9F3-43DF-BCD7-98A91438BDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48676824-D9F3-43DF-BCD7-98A91438BDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8474FB77-23EA-4264-993E-82B8AE55F05E}
+	EndGlobalSection
+EndGlobal

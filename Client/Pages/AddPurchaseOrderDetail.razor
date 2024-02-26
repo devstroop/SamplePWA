@@ -1,0 +1,67 @@
+@page "/add-purchase-order-detail"
+@attribute [Authorize]
+
+<PageTitle>Add PurchaseOrderDetail</PageTitle>
+    <RadzenColumn SizeMD=12>
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">Cannot save PurchaseOrderDetail</RadzenAlert>
+        <RadzenTemplateForm TItem="SamplePWA.Server.Models.SampleDB.PurchaseOrderDetail" Data="@purchaseOrderDetail" Visible="@(purchaseOrderDetail != null && canEdit)" Submit="@FormSubmit">
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Order Detail I D" Component="OrderDetailID" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.OrderDetailID" Name="OrderDetailID" />
+                    <RadzenRequiredValidator Component="OrderDetailID" Text="OrderDetailID is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Purchase Order" Component="PurchaseOrder" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenDropDownDataGrid Data="@purchaseOrdersForOrderID" TextProperty="Status" ValueProperty="OrderID" AllowClear=true
+                         Placeholder="Choose PurchaseOrder" style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.OrderID" Name="OrderID"
+                        SelectedValue=@purchaseOrdersForOrderIDValue Count=@purchaseOrdersForOrderIDCount LoadData=@purchaseOrdersForOrderIDLoadData />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Product" Component="Product" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenDropDownDataGrid Data="@productsForProductID" TextProperty="Name" ValueProperty="ProductID" AllowClear=true
+                         Placeholder="Choose Product" style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.ProductID" Name="ProductID"
+                        SelectedValue=@productsForProductIDValue Count=@productsForProductIDCount LoadData=@productsForProductIDLoadData />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Quantity" Component="Quantity" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.Quantity" Name="Quantity" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Unit Price" Component="UnitPrice" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.UnitPrice" Name="UnitPrice" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Total Price" Component="TotalPrice" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@purchaseOrderDetail.TotalPrice" Name="TotalPrice" />
+                </RadzenColumn>
+            </RadzenRow>
+          <RadzenStack  Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+          </RadzenStack>
+        </RadzenTemplateForm>
+    </RadzenColumn>
+

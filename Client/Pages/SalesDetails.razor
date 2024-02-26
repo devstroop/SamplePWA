@@ -1,0 +1,52 @@
+@page "/sales-details"
+@attribute [Authorize]
+
+<PageTitle>SalesDetails</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="SalesDetails" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenSplitButton Icon="get_app" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+                    <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
+                    <RadzenSplitButtonItem Text="CSV" Value="csv" />
+                </RadzenSplitButton>
+                <RadzenButton Icon="add_circle_outline" Text="Add" Click="@AddButtonClick" Variant="Variant.Flat" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenTextBox Placeholder="Search ..." style="display: block; width: 100%" @oninput="@Search" aria-label="Search by all string columns" />
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="200px"   AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@salesDetails" LoadData="@Grid0LoadData" Count="@count" TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" RowSelect="@EditRow">
+            <Columns>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="DetailID" Title="Detail I D">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="Sale.Status" Title="Sale">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="Product.Name" Title="Product">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="Quantity" Title="Quantity">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="UnitPrice" Title="Unit Price">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Property="TotalPrice" Title="Total Price">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="SamplePWA.Server.Models.SampleDB.SalesDetail" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                    <Template Context="salesDetail">
+
+                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Medium"
+                            Shade="Shade.Lighter" Variant="Variant.Flat"
+                            Click=@(args => GridDeleteButtonClick(args, salesDetail)) @onclick:stopPropagation="true" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>
