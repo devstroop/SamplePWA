@@ -50,6 +50,7 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
 	```
 
 # Developed by
-[Akash Shah](https://buymeacoffee.com/aksbju)
+  [Akash Shah](https://buymeacoffee.com/aksbju)
 - [GitHub](https://www.github.com/itsalfredakku)
 - [Organization](https://www.github.com/devstroop)
+- [Website](https://www.devstroop.com)
