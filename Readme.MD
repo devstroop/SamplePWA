@@ -50,9 +50,9 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
 
 6. Run the application
 
-```bash
-    dotnet run --project Server
-```
+	```bash
+	dotnet run --project Server
+	```
 
 # Developed by
   [Akash Shah](https://www.buymeacoffee.com/aksbju)
