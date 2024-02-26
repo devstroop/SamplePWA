@@ -6,25 +6,25 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
 2. Open the solution in Visual Studio 2022
 3. Open the `Server/appsettings.json` or `Server/appsettings.Development.json` file and change the `ConnectionStrings.SampleDBConnection` to point to your SQL Server instance
 
-```json
+	```json
 	{
 	  "ConnectionStrings": {
 		"SampleDBConnection": "Server=localhost;Database=SampleDB;Trusted_Connection=True;"
 	  }
 	}
-```
+	```
 
 4. Open the `SampleDB.sql` file and execute it in your SQL Server instance
 5. (Optional) Modify `Server/Properties/launchSettings.json` to point to your SQL Server instance
 
-```json
+	```json
 	{
-      "iisSettings": {
-        "windowsAuthentication": false,
-        "anonymousAuthentication": true,
-        "iisExpress": {
-          "applicationUrl": "http://localhost:19712",
-          "sslPort": 44395
+		"iisSettings": {
+        	"windowsAuthentication": false,
+        	"anonymousAuthentication": true,
+        	"iisExpress": {
+          		"applicationUrl": "http://localhost:19712",
+          	"sslPort": 44395
         }
       },
       "profiles": {
@@ -46,7 +46,7 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
         }
       }
     }
-```
+	```
 
 6. Run the application
 
