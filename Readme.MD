@@ -53,6 +53,8 @@ This is a sample Auto(SSR+CSR) PWA with .Net Core 8.0, Radzen Components, OData,
 	```bash
 	dotnet run --project Server
 	```
+## Database Schema Report
+
 
 # Developed by
   [Akash Shah](https://www.buymeacoffee.com/aksbju)
